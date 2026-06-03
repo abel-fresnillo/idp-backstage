@@ -26,7 +26,7 @@ RUN --mount=type=cache,target=/home/node/.cache/yarn,sharing=locked,uid=1000,gid
 COPY --chown=node:node . .
 
 RUN yarn tsc
-RUN yarn build:backend
+RUN yarn build:all
 
 # Stage 2: production
 FROM node:24-trixie-slim
@@ -58,5 +58,7 @@ COPY --chown=node:node app-config*.yaml ./
 
 COPY --chown=node:node --from=build /app/packages/backend/dist/bundle.tar.gz ./
 RUN tar xzf bundle.tar.gz && rm bundle.tar.gz
+
+COPY --chown=node:node --from=build /app/packages/app/dist ./packages/app/dist
 
 CMD ["node", "packages/backend", "--config", "app-config.yaml", "--config", "app-config.production.yaml"]
