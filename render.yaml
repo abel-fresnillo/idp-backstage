@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: backstage
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: starter  # upgrade to 'standard' (1 GB RAM) if Backstage feels slow
+    port: 7007
+    healthCheckPath: /healthcheck
+    envVars:
+      - key: APP_BASE_URL
+        value: https://backstage.onrender.com
+      - key: POSTGRES_HOST
+        fromDatabase:
+          name: backstage-db
+          property: host
+      - key: POSTGRES_PORT
+        fromDatabase:
+          name: backstage-db
+          property: port
+      - key: POSTGRES_USER
+        fromDatabase:
+          name: backstage-db
+          property: user
+      - key: POSTGRES_PASSWORD
+        fromDatabase:
+          name: backstage-db
+          property: password
+      - key: GITHUB_TOKEN
+        sync: false  # set this manually in the Render dashboard
+
+databases:
+  - name: backstage-db
+    plan: starter
+    databaseName: backstage
+    user: backstage
