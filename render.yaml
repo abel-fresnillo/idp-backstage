@@ -24,6 +24,8 @@ services:
         fromDatabase:
           name: backstage-db
           property: password
+      - key: PGSSLMODE
+        value: require
       - key: GITHUB_TOKEN
         sync: false  # set this manually in the Render dashboard
 
