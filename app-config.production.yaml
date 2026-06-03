@@ -1,11 +1,11 @@
 app:
-  baseUrl: ${APP_BASE_URL}
+  baseUrl: https://idp-backstage.onrender.com
 
 backend:
-  baseUrl: ${APP_BASE_URL}
+  baseUrl: https://idp-backstage.onrender.com
   listen: ':7007'
   cors:
-    origin: ${APP_BASE_URL}
+    origin: https://idp-backstage.onrender.com
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
 

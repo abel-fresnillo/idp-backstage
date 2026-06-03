@@ -8,8 +8,6 @@ services:
     port: 7007
     healthCheckPath: /healthcheck
     envVars:
-      - key: APP_BASE_URL
-        value: https://backstage.onrender.com
       - key: POSTGRES_HOST
         fromDatabase:
           name: backstage-db
