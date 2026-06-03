@@ -4,6 +4,9 @@ app:
 backend:
   baseUrl: https://idp-backstage.onrender.com
   listen: ':7007'
+  auth:
+    keys:
+      - secret: ${BACKEND_SECRET}
   cors:
     origin: https://idp-backstage.onrender.com
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]

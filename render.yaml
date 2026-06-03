@@ -26,6 +26,8 @@ services:
           property: password
       - key: PGSSLMODE
         value: require
+      - key: BACKEND_SECRET
+        sync: false  # set this manually in the Render dashboard
       - key: GITHUB_TOKEN
         sync: false  # set this manually in the Render dashboard
 
