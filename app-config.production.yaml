@@ -1,6 +1,5 @@
 app:
   baseUrl: https://idp-backstage.onrender.com
-  signInPage: github
 
 backend:
   baseUrl: https://idp-backstage.onrender.com
