@@ -5,8 +5,11 @@ backend:
   baseUrl: https://idp-backstage.onrender.com
   listen: ':7007'
   auth:
-    keys:
-      - secret: ${BACKEND_SECRET}
+    externalAccess:
+      - type: static
+        options:
+          token: ${BACKEND_SECRET}
+          subject: backstage-frontend
   cors:
     origin: https://idp-backstage.onrender.com
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
@@ -30,6 +33,9 @@ auth:
       production:
         clientId: ${AUTH_GITHUB_CLIENT_ID}
         clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+        signIn:
+          resolvers:
+            - resolver: usernameMatchingUserEntityName
 
 catalog:
   # Overrides the default list locations from app-config.yaml as these contain example data.
