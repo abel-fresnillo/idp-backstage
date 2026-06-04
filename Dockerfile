@@ -38,8 +38,10 @@ ENV NODE_OPTIONS="--no-node-snapshot"
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update && \
-    apt-get install -y --no-install-recommends python3 g++ build-essential libsqlite3-dev && \
+    apt-get install -y --no-install-recommends python3 python3-pip g++ build-essential libsqlite3-dev && \
     rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install mkdocs mkdocs-techdocs-core --break-system-packages
 
 USER node
 WORKDIR /app
