@@ -57,3 +57,10 @@ catalog:
       target: ./examples/org.yaml
       rules:
         - allow: [User, Group]
+
+    - type: url
+      target: https://github.com/abel-fresnillo/the-shop-storefront/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/abel-fresnillo/the-shop-order-service/blob/main/catalog-info.yaml
+    - type: url
+      target: https://github.com/abel-fresnillo/the-shop-product-api/blob/main/catalog-info.yaml
