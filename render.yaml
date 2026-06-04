@@ -28,6 +28,10 @@ services:
         value: require
       - key: BACKEND_SECRET
         sync: false  # set this manually in the Render dashboard
+      - key: AUTH_GITHUB_CLIENT_ID
+        sync: false  # set this manually in the Render dashboard
+      - key: AUTH_GITHUB_CLIENT_SECRET
+        sync: false  # set this manually in the Render dashboard
       - key: GITHUB_TOKEN
         sync: false  # set this manually in the Render dashboard
 
