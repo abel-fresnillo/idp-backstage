@@ -2,6 +2,7 @@ import { createApp } from '@backstage/frontend-defaults';
 import catalogPlugin from '@backstage/plugin-catalog/alpha';
 import techdocsPlugin from '@backstage/plugin-techdocs/alpha';
 import githubActionsPlugin from '@backstage-community/plugin-github-actions/alpha';
+import apiDocsPlugin from '@backstage/plugin-api-docs/alpha';
 import { SignInPage } from '@backstage/core-components';
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import { createFrontendModule } from '@backstage/frontend-plugin-api';
@@ -32,5 +33,5 @@ const signInModule = createFrontendModule({
 });
 
 export default createApp({
-  features: [catalogPlugin, techdocsPlugin, githubActionsPlugin, navModule, signInModule],
+  features: [catalogPlugin, techdocsPlugin, githubActionsPlugin, apiDocsPlugin, navModule, signInModule],
 });
